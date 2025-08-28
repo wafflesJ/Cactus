@@ -82,11 +82,15 @@
     const time = document.getElementById("time");
     function updateTimer() {
       timeLeft--;
-      time.textContent = "0:"+timeLeft;
+      time.textContent = "0:"+(timeLeft<10?"0":"")+timeLeft;
       if(timeLeft<=0) {
-        ime.textContent = "0:00";
+        time.textContent = "0:00";
         clearInterval(timer);
         cancelAnimationFrame(anim);
+        x = (window.innerWidth - box.offsetWidth) / 2;
+        y = (window.innerHeight - box.offsetHeight) / 2;
+        box.style.left = x + "px";
+        box.style.top = y + "px";
       }
     }
     let box = document.getElementById("box");
