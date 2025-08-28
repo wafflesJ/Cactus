@@ -76,13 +76,13 @@
     </button>
   </div>
   <script>
-    let timeLeft = 60;
+    let timeLeft = 90;
     let timer;
     let anim;
     const time = document.getElementById("time");
     function updateTimer() {
       timeLeft--;
-      time.textContent = "0:"+(timeLeft<10?"0":"")+timeLeft;
+      time.textContent = (timeLeft>=60?"1":"0"+":"+(timeLeft<10?"0":"")+timeLeft%60;
       if(timeLeft<=0) {
         time.textContent = "0:00";
         clearInterval(timer);
